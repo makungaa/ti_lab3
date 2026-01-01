@@ -52,7 +52,7 @@ router.post('/posts/:id/comments', (req, res) => {
                 function (err) {
                     if (err) return res.status(500).json(err);
 
-                    res.status(201).json({
+                    res.status(201).set('Location', `/api/comments/${postId}`).json({
                         id: this.lastID,
                         post_id: postId,
                         author,

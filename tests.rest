@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:3000
+
+### GET - lista postów
+GET {{baseUrl}}/api/posts
+
+### POST - dodanie posta
+POST {{baseUrl}}/api/posts
+Content-Type: application/json
+
+{
+  "title": "Pierwszy post",
+  "body": "Treść posta testowego"
+}
+
+### POST - dodanie komentarza (pending)
+POST {{baseUrl}}/api/posts/1/comments
+Content-Type: application/json
+
+{
+  "author": "Ala",
+  "body": "Super wpis!"
+}
+
+### GET - komentarze publiczne (tylko approved)
+GET {{baseUrl}}/api/posts/1/comments
+
+### POST - zatwierdzenie komentarza (moderacja)
+POST {{baseUrl}}/api/comments/1/approve
